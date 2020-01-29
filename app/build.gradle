@@ -1,9 +1,22 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.dev.arunkumar:scabbard-gradle-plugin:0.1.0"
+    }
+}
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+
+apply plugin: "scabbard.gradle"
 
 android {
     compileSdkVersion 29
@@ -35,6 +48,10 @@ android {
 
 tasks.matching { it instanceof Test }.all {
     testLogging.events = ["failed", "passed", "skipped"]
+}
+
+scabbard {
+    enabled true
 }
 
 dependencies {
