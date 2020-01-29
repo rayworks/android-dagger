@@ -33,6 +33,10 @@ android {
     }
 }
 
+tasks.matching { it instanceof Test }.all {
+    testLogging.events = ["failed", "passed", "skipped"]
+}
+
 dependencies {
     def androidx_version = "1.1.0"
     def androidx_test_version = "1.2.0"
