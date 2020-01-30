@@ -75,7 +75,7 @@ class UserManager @Inject constructor(
         logout()
     }
 
-    private fun userJustLoggedIn() {
+    /*private*/ fun userJustLoggedIn() {
         userComponent = userComponentFactory.create()
     }
 }
